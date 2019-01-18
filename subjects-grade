@@ -1,0 +1,95 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    		<h4 class="text-center">Enter Your School Results</h4>
+         	<p class="text-center">You are required to enter grades for <span style="color: red;"> at LEAST (5) Subject(s)</span> Including English</p>
+    </div>
+    <div class="panel-body">
+     <div class="table table-responsive" id="">
+         <table class="table table-bordered" id="item_table">
+              <tr>
+                <th>Subject Name</th>
+                 <th>Grade</th>
+               </tr>
+               <tr>
+                 <td>
+                    <select class="form-control" name="subjects[]" id="subjects">
+                      <option value="">--Select Subjects--</option>
+                      <option value="English">English</option>
+                      <option value="Mathematics">Mathematics</option>
+                      <option value="Physical Science">Physical Science</option>
+                      <option value="Biology">Biology</option>
+                      <option value="History">History</option>
+                      <option value="Computer Studies">Computer Studies</option>
+                      <option value="Commerce">Commerce</option>
+                      <option value="Arts and Design">Arts and Design</option>
+                      <option value="Music and Art">Music and Art</option>
+                      <option value="Geography">Geography</option>
+                      <option value="Pure Chemistry">Pure Chemistry</option>
+                      <option value="Pure Physics">Pure Physics</option>
+                      <option value="Additional Mathematics">Additional Mathematics</option>
+                      <option value="Principles of Accounts">Principles of Accounts</option>
+                      <option value="Agriculture Science">Agriculture Science</option>
+                      <option value="Home Management">Home Management</option>
+                      <option value="Fashion and Design">Fashion and Design</option>
+                      <option value="Religious Education">Religious Education</option>
+                      <option value="Metal Work">Metal Work</option>
+                      <option value="Geometric Drawing">Geometric Drawing</option>
+                   </select>
+              </td>
+              <td>
+                  <select name="grades[]" id="grades" class="form-control">
+                  	<option value="0">--Select--</option>
+                  	<option value="1">1</option>
+                  	<option value="2">2</option>
+                  	<option value="3">3</option>
+                  	<option value="4">4</option>
+                  	<option value="5">5</option>
+                  	<option value="6">6</option>
+                   	<option value="7">7</option>
+                   	<option value="8">8</option>
+                   	<option value="9">9</option>
+                   </select>
+                </td>
+           </tr>
+          <tfoot>
+          		<tr>
+								<td><button type="button" class="btn btn-primary add_anothe_subject">Add Another Subject</button></td>
+								<td><input type="text" name="points" id="points" /></td>
+					  	</tr>
+	        </tfoot>
+       </table>
+  </div>
+ </div>
+ </body>
+ </html>
+   <div class="panel-footer">
+      <button type="button" id="results_btn" class="btn btn-info" onclick="backtophase5()">Previous</button>
+     </div>
+  </div>
+</div>
+<script>
+	$(document).ready(function(){
+	 
+       $(document).on('click', '.add_anothe_subject', function(){
+        var html = '';
+        html += '<tr>';
+        html += '<td><select class="form-control" name="subjects[]" id="subjects"><option value="">--Select Subjects--</option><option value="English">English</option><option value="Mathematics">Mathematics</option><option value="Physical Science">Physical Science</option><option value="Biology">Biology</option><option value="History">History</option><option value="Computer Studies">Computer Studies</option><option value="Commerce">Commerce</option><option value="Arts and Design">Arts and Design</option><option value="Music and Art">Music and Art</option><option value="Geography">Geography</option><option value="Pure Chemistry">Pure Chemistry</option><option value="Pure Physics">Pure Physics</option><option value="Additional Mathematics">Additional Mathematics</option><option value="Principles of Accounts">Principles of Accounts</option><option value="Agriculture Science">Agriculture Science</option><option value="Home Management">Home Management</option><option value="Fashion and Design">Fashion and Design</option><option value="Religious Education">Religious Education</option><option value="Metal Work">Metal Work</option><option value="Geometric Drawing">Geometric Drawing</option></select></td>';
+        html += '<td><select name="grades[]" id="grades" class="form-control"><option value="0">--Select--</option>                                					<option value="1">1</option><option value="2">2</option><option value="3">3</option>                                					<option value="4">4</option><option value="5">5</option><option value="6">6</option>                                					<option value="7">7</option><option value="8">8</option><option value="9">9</option>                                				</select></td>';
+        html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="fa fa-minus"></span></button></td></tr>';
+        $('#item_table').append(html);
+       });
+
+       $(document).on('click', '.remove', function(){
+        $(this).closest('tr').remove();
+       });
+    });
+</script>
